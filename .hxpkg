@@ -1,0 +1,56 @@
+[
+	{
+		"profile": "default",
+		"pkgs": [
+			{
+				"name": "lime"
+			},
+			{
+				"name": "flixel",
+				"link": "https://github.com/HaxeFlixel/flixel"
+			},
+			{
+				"name": "openfl",
+				"link": "https://github.com/openfl/openfl"
+			},
+			{
+				"name": "hxcpp",
+				"link": "https://github.com/HaxeFoundation/hxcpp"
+			},
+			{
+				"name": "hscript",
+				"link": "https://github.com/HaxeFoundation/hscript"
+			},
+			{
+				"name": "rulescript",
+				"link": "https://github.com/Kriptel/RuleScript.git",
+				"branch": "dev"
+			},
+			{
+				"name": "flixel-addons",
+				"link": "https://github.com/HaxeFlixel/flixel-addons"
+			},
+			{
+				"name": "flixel-ui",
+				"link": "https://github.com/HaxeFlixel/flixel-ui"
+			},
+			{
+				"name": "flixel-demos",
+				"link": "https://github.com/HaxeFlixel/flixel-demos"
+			},
+			{
+				"name": "flixel-tools",
+				"link": "https://github.com/HaxeFlixel/flixel-tools"
+			},
+			{
+				"name": "flixel-templates",
+				"link": "https://github.com/HaxeFlixel/flixel-templates"
+			},
+			{
+				"name": "flixel-modding",
+				"link": "https://github.com/akaFinn/flixel-modding",
+				"branch": "develop"
+			}
+		]
+	}
+]
