@@ -20,4 +20,25 @@ class Paths
 			return permCachedImages.get(key);
 		return null;
 	}
+	public static function graphicExists(key:String)
+	{
+		return getGraphicFromCache(key) != null;
+	}
+
+	public function cacheImageFromString(key:String, ?persistForever:Bool = false):FlxGraphic
+	{
+		if (graphicExists(key))
+			return getGraphicFromCache(key);
+		if (FlxG.assets.exists(key, IMAGE))
+		{
+			var graphic:FlxGraphic = FlxGraphic.fromAssetKey(key, false, key, false);
+			graphic.persist = persistForever;
+			if (persistForever)
+				permCachedImages.set(key, graphic);
+			else
+				cachedImages.set(key, graphic);
+			return graphic;
+		}
+		return null;
+	}
 }
