@@ -1,6 +1,7 @@
 package funkin.backend;
 
 import flixel.graphics.FlxGraphic;
+import flixel.graphics.frames.FlxAtlasFrames;
 import haxe.extern.EitherType;
 import openfl.utils.AssetType;
 import openfl.utils.Assets;
@@ -69,5 +70,43 @@ class Paths
 	public static function getText(key:String)
 	{
 		return Assets.getText(key);
+	}
+	public static function getSparrowAtlas(key:String)
+	{
+		var pngPath = image(key);
+		var xmlPath = getPath('images/$key.xml');
+		if (!Paths.exists(xmlPath, TEXT) || !Paths.exists(pngPath, IMAGE))
+		{
+			FlxG.log.error("Missing Sparrow atlas PNG or XML: " + xmlPath);
+			return null;
+		}
+		var atlas = FlxAtlasFrames.fromSparrow(getGraphicFromCache(pngPath), xmlPath);
+		return atlas;
+	}
+
+	public static function getPackerXMLAtlas(key:String)
+	{
+		var pngPath = image(key);
+		var xmlPath = getPath('images/$key.xml');
+		if (!Paths.exists(xmlPath, TEXT) || !Paths.exists(pngPath, IMAGE))
+		{
+			FlxG.log.error("Missing Packer atlas PNG or XML: " + xmlPath);
+			return null;
+		}
+		var atlas = FlxAtlasFrames.fromTexturePackerXml(pngPath, xmlPath);
+		return atlas;
+	}
+
+	public static function getPackerJSONAtlas(key:String, ?useFrameDuration:Bool = false)
+	{
+		var pngPath = image(key);
+		var jsonPath = getPath('images/$key.json');
+		if (!Paths.exists(jsonPath, TEXT) || !Paths.exists(pngPath, IMAGE))
+		{
+			FlxG.log.error("Missing Packer atlas PNG or JSON: " + jsonPath);
+			return null;
+		}
+		var atlas = FlxAtlasFrames.fromTexturePackerJson(pngPath, jsonPath);
+		return atlas;
 	}
 }
