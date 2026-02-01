@@ -3,6 +3,7 @@ package funkin.backend;
 import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
 import haxe.extern.EitherType;
+import openfl.display.BitmapData;
 import openfl.utils.AssetType;
 import openfl.utils.Assets;
 
@@ -36,6 +37,7 @@ class Paths
 			return getGraphicFromCache(key);
 		if (FlxG.assets.exists(key, IMAGE))
 		{
+
 			var graphic:FlxGraphic = FlxGraphic.fromAssetKey(key, false, key, true);
 			graphic.persist = persistForever;
 			if (persistForever)
@@ -49,10 +51,11 @@ class Paths
 
 	public static function image(key:String, ?persistForever:Bool = false, ?graphic:Bool = false):EitherType<FlxGraphic, String>
 	{
-		var cacheKey = getPath('images/$key');
-		cacheImageFromString(key, persistForever);
+		var cacheKey = getPath('images/$key.png');
+		cacheImageFromString(cacheKey, persistForever);
+		
 		if (graphic)
-			return getGraphicFromCache(key);
+			return getGraphicFromCache(cacheKey);
 		return cacheKey;
 	}
 
@@ -75,9 +78,11 @@ class Paths
 	{
 		var pngPath = image(key);
 		var xmlPath = getPath('images/$key.xml');
-		if (!Paths.exists(xmlPath, TEXT) || !Paths.exists(pngPath, IMAGE))
+		trace(pngPath);
+		if (!Paths.exists(xmlPath, TEXT))
 		{
 			FlxG.log.error("Missing Sparrow atlas PNG or XML: " + xmlPath);
+			trace("Missing Sparrow atlas PNG or XML: " + xmlPath);
 			return null;
 		}
 		var atlas = FlxAtlasFrames.fromSparrow(getGraphicFromCache(pngPath), xmlPath);

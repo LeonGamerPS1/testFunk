@@ -12,7 +12,7 @@ class Main extends Sprite
 	{
 		super();
 		RuleScript.resolveScript;
-		addChild(new FlxGame(0, 0, InitState, 64, 64, true));
+		addChild(new FlxGame(0, 0, InitState, true));
 	}
 
 	@:noCompletion private override function __hitTest(x:Float, y:Float, shapeFlag:Bool, stack:Array<DisplayObject>, interactiveOnly:Bool,

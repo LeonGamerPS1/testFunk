@@ -23,7 +23,11 @@ class GameG
 			{
 				trace(scriptPath);
 				RuleScriptedClassUtil.registerRuleScriptedClass(n, script.getParser(HxParser).parse(Paths.getText(scriptPath)));
-				FlxG.switchState(new ScriptedState(Std.string(n)));
+				var newS:FlxState = null;
+				script.superInstance = newS;
+				FlxG.switchState(newS = new ScriptedState(Std.string(n)));
+	
+
 			}
 		}
 	}
@@ -35,8 +39,10 @@ class GameG
 		script.scriptName = ' [[RULESCRIPT TEST]]';
 
 		script.getInterp(NeoInterp);
-
 		script.errorHandler = onError;
+		script.variables.set("add", (obj) -> FlxG.state.add(obj));
+		script.variables.set("insert", (index:Int, obj) -> FlxG.state.insert(index, obj));
+		script.variables.set("remove", (obj, ?splice:Bool = true) -> FlxG.state.remove(obj, splice));
 	}
 
 	static function onError(e:haxe.Exception):Dynamic
