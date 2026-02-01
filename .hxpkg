@@ -18,8 +18,7 @@
 				"link": "https://github.com/HaxeFoundation/hxcpp"
 			},
 			{
-				"name": "hscript",
-				"link": "https://github.com/HaxeFoundation/hscript"
+				"name": "hscript"
 			},
 			{
 				"name": "rulescript",

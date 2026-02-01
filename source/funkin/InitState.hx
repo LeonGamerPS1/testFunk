@@ -33,12 +33,12 @@ class InitState extends FlxState
 			"FlxAngle" => FlxAngle,
 			"FlxMath" => FlxMath,
 			"FlxMatrix" => FlxMatrix,
-			"FlxPoint" => FlxPoint,
 			"FlxRandom" => FlxRandom,
 			"FlxRect" => FlxRect,
 			"FlxVelocity" => FlxVelocity
 		]);
 
+		RuleScript.defaultImports.set("funkin.backend", ["Paths" => Paths]);
 
 		super.create();
 	}
