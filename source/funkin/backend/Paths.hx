@@ -12,7 +12,7 @@ class Paths
 	// stay for the rest of the games duration, needs restart to clear
 	static var permCachedImages:FlxMapGraphic = new FlxMapGraphic();
 
-	public function getGraphicFromCache(key:String):FlxGraphic
+	public static function getGraphicFromCache(key:String):FlxGraphic
 	{
 		if (cachedImages.exists(key))
 			return cachedImages.get(key);
