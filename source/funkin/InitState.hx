@@ -39,6 +39,10 @@ class InitState extends FlxState
 		]);
 
 		RuleScript.defaultImports.set("funkin.backend", ["Paths" => Paths]);
+		RuleScript.defaultImports.set("funkin.states", ["GameG" => GameG]);
+		RuleScript.defaultImports.set("funkin.scripting", ["ScriptedState" => ScriptedState]);
+		GameG.init();
+		GameG.switchState("TitleState");
 
 		super.create();
 	}

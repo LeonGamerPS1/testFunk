@@ -43,6 +43,8 @@
 	<assets path="mods" />
 
 	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />
+	
+	<haxedef name="hscriptPos"/>
 
 
 	<!-- _______________________________ Libraries ______________________________ -->

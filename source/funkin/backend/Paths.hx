@@ -45,6 +45,7 @@ class Paths
 		}
 		return null;
 	}
+
 	public static function image(key:String, ?persistForever:Bool = false, ?graphic:Bool = false):EitherType<FlxGraphic, String>
 	{
 		var cacheKey = getPath('images/$key');
@@ -58,5 +59,15 @@ class Paths
 	{
 		final path = 'assets/$key';
 		return path;
+	}
+
+	public static function exists(key:String, ?type:AssetType)
+	{
+		return Assets.exists(key, type);
+	}
+
+	public static function getText(key:String)
+	{
+		return Assets.getText(key);
 	}
 }
