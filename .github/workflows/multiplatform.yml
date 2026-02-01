@@ -63,7 +63,7 @@ jobs:
           haxelib setup C:/haxelib
           haxelib --global install hxpkg
           haxelib --global run hxpkg setup
-          hxpkg install
+          haxelib run hxpkg install
         shell: cmd
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
